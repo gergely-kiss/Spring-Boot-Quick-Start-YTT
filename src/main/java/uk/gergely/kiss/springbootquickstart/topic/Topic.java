@@ -15,6 +15,13 @@ public class Topic {
 		this.name = name;
 		this.description = description;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Topic [id=" + id + ", name=" + name + ", description=" + description + "]";
+	}
 
 	public String getId() {
 		return id;
