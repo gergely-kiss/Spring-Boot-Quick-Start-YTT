@@ -11,7 +11,7 @@ public interface TopicsService {
 
 	public String addTopic(Topic topic);
 
-	public String updateTopic(String id, Topic topic);
+	public String updateTopic(Topic topic);
 
 	public String deleteTopic(String id);
 }

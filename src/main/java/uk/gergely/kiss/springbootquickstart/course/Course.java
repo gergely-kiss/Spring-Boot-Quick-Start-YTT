@@ -1,27 +1,31 @@
-package uk.gergely.kiss.springbootquickstart.topic;
+package uk.gergely.kiss.springbootquickstart.course;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import uk.gergely.kiss.springbootquickstart.topic.Topic;
 
 @Entity
-public class Topic {
+public class Course {
+	
 	@Id
 	private String id;
 	private String name;
 	private String description;
+	
+	@ManyToOne
+	private Topic topic;
 
-	public Topic() {
+	public Course() {
 	}
 
-	public Topic(String id, String name, String description) {
+	public Course(String id, String name, String description, String topicId) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
-	}
-
-	public Topic(String id) {
-		this.id = id;
+		this.topic = new Topic(topicId);
 	}
 
 	@Override
@@ -52,5 +56,15 @@ public class Topic {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+
+	}
+
+	public Topic getTopic() {
+		return topic;
+	}
+	
 
 }
